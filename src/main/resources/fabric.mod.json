@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "blossom-ender-chest",
+  "version": "${version}",
+  "name": "BlossomEnderChest",
+  "description": "Blossom-series /echest command",
+  "authors": [
+    "CodedSakura"
+  ],
+  "contact": {
+    "website": "https://blossom.codedsakura.dev",
+    "repo": "https://github.com/BlossomMods/BlossomEnderChest"
+  },
+  "license": "MIT",
+  "icon": "assets/blossom-ender-chest/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.codedsakura.blossom.echest.BlossomEnderChest"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.14.3",
+    "minecraft": "1.19.x",
+    "blossom-lib": "^${blossomlib_version}"
+  },
+  "suggests": {
+    "fabric-permissions-api-v0": "*"
+  }
+}
