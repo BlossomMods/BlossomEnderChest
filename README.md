@@ -20,7 +20,10 @@ BlossomEnderChest is a Minecraft Fabric mod in the Blossom-series mods that prov
 This mod's config file can be found at `config/BlossomMods/BlossomEnderChest.json`, after running the server with
 the mod at least once.
 
-`commands`: String\[] - list of commands that trigger this mod
+`commands`: String\[] - list of commands that trigger this mod  
+`nameTranslationKey`: String - translation key for the ender chest name (default: `"blossom.ender-chest.name"`), can
+be set to `"container.enderchest"` to use vanilla translations  
+`nameColor`: String - the text color for the ender chest name
 
 ## Commands & their permissions
 
