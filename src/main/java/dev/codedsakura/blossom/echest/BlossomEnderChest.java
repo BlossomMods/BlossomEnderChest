@@ -30,7 +30,7 @@ public class BlossomEnderChest implements ModInitializer {
     public void onInitialize() {
         ServerLifecycleEvents.SERVER_STARTED.register(server -> {
             CommandDispatcher<ServerCommandSource> dispatcher = server.getCommandManager().getDispatcher();
-            LOGGER.debug(CONFIG.commands);
+            LOGGER.debug("registering commands: {}", String.join(", ", CONFIG.commands));
             Arrays.stream(CONFIG.commands)
                     .forEach(cmdName -> dispatcher
                             .register(literal(cmdName)
