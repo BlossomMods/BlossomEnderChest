@@ -1,3 +1,7 @@
+# 2.0.3
+
+* Update to support 1.20.2
+
 # 2.0.2
 
 * Update command debug logging, bump versions
