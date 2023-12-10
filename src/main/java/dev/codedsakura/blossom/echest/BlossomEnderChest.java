@@ -6,6 +6,7 @@ import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import dev.codedsakura.blossom.lib.config.ConfigManager;
 import dev.codedsakura.blossom.lib.permissions.Permissions;
+import dev.codedsakura.blossom.lib.text.TextUtils;
 import dev.codedsakura.blossom.lib.utils.CustomLogger;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -15,7 +16,6 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
-import net.minecraft.text.TextColor;
 import org.apache.logging.log4j.core.Logger;
 
 import java.util.Arrays;
@@ -49,7 +49,7 @@ public class BlossomEnderChest implements ModInitializer {
                         syncId, inventory, playerEntity.getEnderChestInventory()
                 ),
                 Text.translatable(CONFIG.nameTranslationKey)
-                        .styled(s -> s.withColor(TextColor.parse(CONFIG.nameColor)))
+                        .styled(s -> s.withColor(TextUtils.parseColor(CONFIG.nameColor)))
         ));
         player.incrementStat(Stats.OPEN_ENDERCHEST);
 
