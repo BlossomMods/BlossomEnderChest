@@ -2,6 +2,7 @@
 
 * Update to support 1.20.6
 * Switch to self-hosted maven
+* Fix [#2](https://github.com/BlossomMods/BlossomEnderChest/issues/2)
 
 # 2.0.4
 
