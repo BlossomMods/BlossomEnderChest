@@ -1,15 +1,14 @@
 package dev.codedsakura.blossom.echest;
 
 import com.mojang.brigadier.Command;
-import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import dev.codedsakura.blossom.lib.BlossomLib;
 import dev.codedsakura.blossom.lib.config.ConfigManager;
 import dev.codedsakura.blossom.lib.permissions.Permissions;
 import dev.codedsakura.blossom.lib.text.TextUtils;
 import dev.codedsakura.blossom.lib.utils.CustomLogger;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.command.ServerCommandSource;
@@ -28,16 +27,12 @@ public class BlossomEnderChest implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> {
-            CommandDispatcher<ServerCommandSource> dispatcher = server.getCommandManager().getDispatcher();
-            LOGGER.debug("registering commands: {}", String.join(", ", CONFIG.commands));
-            Arrays.stream(CONFIG.commands)
-                    .forEach(cmdName -> dispatcher
-                            .register(literal(cmdName)
-                                    .requires(Permissions.require("blossom.ender-chest", true)
-                                            .and(Permissions.require("blossom.ender-chest.disallowed", false).negate()))
-                                    .executes(this::run)));
-        });
+        LOGGER.debug("loaded commands: {}", String.join(", ", CONFIG.commands));
+        Arrays.stream(CONFIG.commands)
+                .forEach(cmdName -> BlossomLib.addCommand(literal(cmdName)
+                        .requires(Permissions.require("blossom.ender-chest", true)
+                                .and(Permissions.require("blossom.ender-chest.disallowed", false).negate()))
+                        .executes(this::run)));
     }
 
     private int run(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
