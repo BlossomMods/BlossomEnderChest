@@ -1,3 +1,7 @@
+# 2.0.11
+
+* Update to support 1.21.4
+
 # 2.0.10
 
 * Fix [#3](https://github.com/BlossomMods/BlossomEnderChest/issues/3)
