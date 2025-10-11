@@ -20,6 +20,9 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.minecraft_version}+${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
+    // Fabric API is required for attachments and blockview APIs in MC 1.21.8
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}+${project.minecraft_version}"
+
     modImplementation "dev.codedsakura.blossom:blossom-lib:${project.blossomlib_version}+${mc_version}"
 }
 
